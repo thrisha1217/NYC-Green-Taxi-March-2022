@@ -1,11 +1,7 @@
 streamlit
-textblob
-scikit-learn
-nltk
 pandas
+numpy
 matplotlib
-wordcloud
-imblearn
-bs4
-requests
 seaborn
+scikit-learn
+pyarrow
