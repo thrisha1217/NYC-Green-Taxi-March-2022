@@ -1,0 +1,11 @@
+streamlit
+textblob
+scikit-learn
+nltk
+pandas
+matplotlib
+wordcloud
+imblearn
+bs4
+requests
+seaborn
