@@ -91,7 +91,7 @@ if st.button("Run Regression Models"):
                     preds = np.ravel(model.predict(X_test))
                     y_eval = np.ravel(y_test)
                     r2 = r2_score(y_eval, preds)
-                    rmse = mean_squared_error(y_eval, preds, squared=False)
+                    rmse = mean_squared_error(y_eval, preds) ** 0.5  # manually compute RMSE
                     st.write(f"**{name}**")
                     st.write(f"R2 Score: {r2:.3f}, RMSE: {rmse:.2f}")
                 except Exception as e:
