@@ -74,20 +74,33 @@ st.pyplot(fig2)
 st.subheader("🧠 Predictive Modeling")
 
 if st.button("Run Regression Models"):
-    X = filtered_df.drop(columns=["total_amount", "lpep_pickup_datetime", "lpep_dropoff_datetime"], errors='ignore')
-    y = filtered_df["total_amount"]
-    X = pd.get_dummies(X, drop_first=True)
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    if "total_amount" not in filtered_df.columns:
+        st.error("Error: 'total_amount' column is missing in the dataset.")
+    elif filtered_df.empty:
+        st.warning("No data to train the model after filtering. Try changing the filters.")
+    else:
+        try:
+            X = filtered_df.drop(columns=["total_amount", "lpep_pickup_datetime", "lpep_dropoff_datetime"], errors='ignore')
+            y = filtered_df["total_amount"]
+            X = pd.get_dummies(X, drop_first=True)
+            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-    def show_results(model, name):
-        model.fit(X_train, y_train)
-        preds = model.predict(X_test)
-        r2 = r2_score(y_test, preds)
-        rmse = mean_squared_error(y_test, preds, squared=False)
-        st.write(f"**{name}**")
-        st.write(f"R2 Score: {r2:.3f}, RMSE: {rmse:.2f}")
+            def show_results(model, name):
+                try:
+                    model.fit(X_train, y_train)
+                    preds = np.ravel(model.predict(X_test))
+                    y_eval = np.ravel(y_test)
+                    r2 = r2_score(y_eval, preds)
+                    rmse = mean_squared_error(y_eval, preds, squared=False)
+                    st.write(f"**{name}**")
+                    st.write(f"R2 Score: {r2:.3f}, RMSE: {rmse:.2f}")
+                except Exception as e:
+                    st.error(f"{name} failed: {e}")
 
-    show_results(LinearRegression(), "Linear Regression")
-    show_results(DecisionTreeRegressor(max_depth=10), "Decision Tree (max_depth=10)")
-    show_results(RandomForestRegressor(n_estimators=100, max_depth=10), "Random Forest")
-    show_results(GradientBoostingRegressor(n_estimators=100, max_depth=3), "Gradient Boosting")
+            show_results(LinearRegression(), "Linear Regression")
+            show_results(DecisionTreeRegressor(max_depth=10), "Decision Tree (max_depth=10)")
+            show_results(RandomForestRegressor(n_estimators=100, max_depth=10), "Random Forest")
+            show_results(GradientBoostingRegressor(n_estimators=100, max_depth=3), "Gradient Boosting")
+
+        except Exception as e:
+            st.error(f"Unexpected error during model execution: {e}")
