@@ -18,7 +18,7 @@ st.title("🚖 NYC Green Taxi Trip Analysis - March 2022")
 @st.cache_data
 
 def load_data():
-    df = pd.read_parquet("/content/drive/MyDrive/pa_project/green_tripdata_2022-03 (1).parquet")
+    df = pd.read_parquet("green_tripdata_2022-03(1).parquet")
     df['lpep_pickup_datetime'] = pd.to_datetime(df['lpep_pickup_datetime'])
     df['lpep_dropoff_datetime'] = pd.to_datetime(df['lpep_dropoff_datetime'])
 
