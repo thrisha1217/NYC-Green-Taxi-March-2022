@@ -1,5 +1,13 @@
 # NYC-Green-Taxi-March-2022
 
+##  Live Demo
+
+You can interact with the app directly in your browser (no setup required):
+
+[**Try the NYC Green Taxi Trip Analysis App here**](https://nyc-green-taxi-march-2022-prest4hvcatmft4rfjmxk3.streamlit.app/)
+
+*Note: App updates may take a few seconds to reflect changes after new commits.*
+
 
 This project analyzes the NYC Green Taxi dataset (March 2022) using Python, Streamlit, and Machine Learning.
 It provides:
@@ -74,12 +82,8 @@ You can also explore the analysis in Jupyter:
 
 jupyter notebook "NYC_Green_Taxi_March_2022 (1).ipynb"
 
-📷 Screenshots
-
-Trips by Weekday
 
 
-Trip Duration vs Distance
 
 
 
