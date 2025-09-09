@@ -1,6 +1,5 @@
 # NYC-Green-Taxi-March-2022
-🚖 NYC Green Taxi Trip Analysis – March 2022
-📌 Overview
+
 
 This project analyzes the NYC Green Taxi dataset (March 2022) using Python, Streamlit, and Machine Learning.
 It provides:
