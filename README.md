@@ -82,7 +82,13 @@ You can also explore the analysis in Jupyter:
 
 jupyter notebook "NYC_Green_Taxi_March_2022 (1).ipynb"
 
+📓 Results
 
+📓 Results
+
+You can view the detailed results of the analysis and model performance in this PDF:
+
+[**NYC Green Taxi Trip Analysis Results (PDF)**](./)
 
 
 
