@@ -88,7 +88,8 @@ jupyter notebook "NYC_Green_Taxi_March_2022 (1).ipynb"
 
 You can view the detailed results of the analysis and model performance in this PDF:
 
-[**NYC Green Taxi Trip Analysis Results (PDF)**](./NYC Green Taxi - March 2022 · Streamlit.pdf)
+[**NYC Green Taxi Trip Analysis Results (PDF)**](./NYC Green Taxi-March 2022·Streamlit.pdf)
+
 
 
 
